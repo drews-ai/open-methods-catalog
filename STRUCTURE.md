@@ -1,5 +1,5 @@
 # Repository structure
 
-`domains/{domain_id}/{activity_id}/{task_id}/methods/{position}-{method-slug}/` mirrors Amen's domain → activity → task → method hierarchy.
+`domains/{domain-slug}/activities/{activity-slug}/tasks/{task-slug}/methods/{position}-{method-slug}/` is the public taxonomy: domain → activity → task → method.
 
-The folder names are stable IDs plus readable slugs so renaming a title does not break a source locator. GitHub is the public specimen source; Amen is the method presentation layer.
+The paths use readable academic titles. Internal platform identifiers remain in `catalog.json` for provenance, not in the folder names. The repository is the public specimen source; the platform is the method presentation layer.
