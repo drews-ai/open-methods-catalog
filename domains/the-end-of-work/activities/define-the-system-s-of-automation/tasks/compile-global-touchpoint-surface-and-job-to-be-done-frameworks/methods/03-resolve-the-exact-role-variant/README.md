@@ -2,6 +2,29 @@
 
 - Sequence position: 3
 
-Match titles and aliases, then spend participant facts only on remaining ambiguity.
+Resolve a title through source-backed aliases. Return an exact canonical role when the
+mapping is unique. When several roles remain, select the declared facet that reduces the
+candidate set most and ask only that question. Preserve ambiguity when no source-backed
+fact can finish the resolution.
 
-Code in this folder is illustrative public material. The platform links to exact file lines but never treats this repository as editable website source.
+## Public reference implementation
+
+- [`role_resolver.py`](role_resolver.py) implements deterministic normalization, exact
+  alias resolution, adaptive facet selection, explicit unresolved states, and structural
+  evaluation metrics.
+- [`tests/test_role_resolver.py`](tests/test_role_resolver.py) proves unique, ambiguous,
+  unsupported, and facet-resolved paths with synthetic records.
+- [`PROVENANCE.md`](PROVENANCE.md) describes the recovered VM harness and the boundary
+  between retained results and the cleaned public implementation.
+
+The implementation deliberately excludes fuzzy and embedding matches. Those systems may
+suggest candidates, but they cannot establish a role identity without confirmation.
+
+## Run
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
+No occupational source data is committed here. Callers load their own licensed,
+source-registered aliases and facets.
