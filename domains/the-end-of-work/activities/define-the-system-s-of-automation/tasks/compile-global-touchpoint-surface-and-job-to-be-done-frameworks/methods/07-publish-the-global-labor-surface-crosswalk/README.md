@@ -2,6 +2,15 @@
 
 - Sequence position: 7
 
-Release mappings, unsupported regions, disagreements, and revision history.
+Release stable role identities, source-backed aliases, browse edges, facets, labor
+surfaces, resolver runs, unsupported coverage, disagreements, and revision history.
 
-Code in this folder is illustrative public material. The platform links to exact file lines but never treats this repository as editable website source.
+## Public schema specimen
+
+[`role_resolver_schema.sql`](role_resolver_schema.sql) defines the minimum SQLite/D1
+tables that keep canonical roles, aliases, browse views, facets, labor surfaces, resolver
+releases, candidates, and confirmed resolutions separate.
+
+The schema intentionally does not include agent skills, worker skill claims, automation
+scores, or decommission rankings. Those records belong to downstream tasks that reference
+`role_id` and `resolver_release_id`.
